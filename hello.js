@@ -1,3 +1,6 @@
+const {webFrame} = require('electron')
+webFrame.registerURLSchemeAsPrivileged('file')
+
 // The Module object: Our interface to the outside world. We import
 // and export values on it, and do the work to get that through
 // closure compiler if necessary. There are various ways Module can be used:
@@ -2072,34 +2075,34 @@ function copyTempDouble(ptr) {
 // {{PRE_LIBRARY}}
 
 
-  
+
   function ___setErrNo(value) {
       if (Module['___errno_location']) HEAP32[((Module['___errno_location']())>>2)]=value;
       else Module.printErr('failed to set errno from JS');
       return value;
-    } 
+    }
   Module["_sbrk"] = _sbrk;
 
-   
+
   Module["_memset"] = _memset;
 
   function ___lock() {}
 
-  
+
   function _emscripten_memcpy_big(dest, src, num) {
       HEAPU8.set(HEAPU8.subarray(src, src+num), dest);
       return dest;
-    } 
+    }
   Module["_memcpy"] = _memcpy;
 
   function _abort() {
       Module['abort']();
     }
 
-   
+
   Module["_llvm_bswap_i32"] = _llvm_bswap_i32;
 
-  
+
   var SYSCALLS={varargs:0,get:function (varargs) {
         SYSCALLS.varargs += 4;
         var ret = HEAP32[(((SYSCALLS.varargs)-(4))>>2)];
